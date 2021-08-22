@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app_python:
+    image: lok52/app_python
+    build: app_python
+    ports:
+      - 8000:8000
+  app_rust:
+    image: lok52/app_rust
+    build: app_rust
+    ports:
+      - 8001:8000
