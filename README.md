@@ -8,11 +8,13 @@ There are two separate modules in this project:
 
 * **app_rust** - Rocket HTTP server which shows current time in Moscow timeone
 
-You can find more info about each project (how to run, lint, etc.) in corresponding folders.
+You can find more info about each project (how to run, lint, etc.)
+in corresponding folders.
 
 ## Lint
 
-Lint project markdown files using [mdl](https://github.com/markdownlint/markdownlint) linter:
+Lint project markdown files using
+[mdl](https://github.com/markdownlint/markdownlint) linter:
 
 ```bash
 mdl .

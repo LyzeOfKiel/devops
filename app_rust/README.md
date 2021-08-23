@@ -2,13 +2,13 @@
 
 ## Run
 
-### Directly on target machine:
+### Directly on target machine
 
 ```bash
 cargo run --release
 ```
 
-### Or with docker:
+### Or with docker
 
 ```bash
 docker build -t app_rust .

@@ -2,14 +2,14 @@
 
 ## Run
 
-### Directly on target machine:
+### Directly on target machine
 
 ```bash
 pip install -r requirements.txt
 gunicorn -c gunicorn.conf.py
 ```
 
-### Or with docker:
+### Or with docker
 
 ```bash
 docker build -t app_python .
