@@ -15,11 +15,3 @@ gunicorn -c gunicorn.conf.py
 docker build -t app_python .
 docker run -d -p 8000:8000 app_python
 ```
-
-## Lint
-
-Using [Pylint](https://github.com/PyCQA/pylint/):
-
-```bash
-pylint ./*.py
-```
