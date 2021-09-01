@@ -1,6 +1,6 @@
 ![app_python](https://github.com/LyzeOfKiel/devops/actions/workflows/app_python.yml/badge.svg)
 
-# DevOps Lab 1
+# DevOps
 
 ## Structure
 
