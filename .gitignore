@@ -9,4 +9,6 @@ target
 
 # Terraform
 .terraform*
+# .tfstate files
 *.tfstate
+*.tfstate.*
