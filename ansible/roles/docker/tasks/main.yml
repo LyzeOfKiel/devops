@@ -50,8 +50,25 @@
     enabled: "{{ docker_service_enabled }}"
   ignore_errors: "{{ ansible_check_mode }}"
 
+- name: Ensure Pip is installed.
+  package:
+    name: python3-pip
+    state: present
+
+- name: Install Docker SDK
+  pip:
+    name: docker
+
 - name: Ensure handlers are notified now to avoid firewall conflicts.
   meta: flush_handlers
 
 - include_tasks: docker-compose.yml
   when: docker_install_compose | bool
+
+- name: Ensure docker users are added to the docker group.
+  user:
+    name: "{{ item }}"
+    groups: docker
+    append: true
+  with_items: "{{ docker_users }}"
+  when: docker_users | length > 0

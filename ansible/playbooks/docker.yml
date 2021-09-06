@@ -1,4 +1,14 @@
-- hosts: aws_ec2
+- name: Install Docker
+  hosts: aws_ec2
   become: true
+  vars:
+    docker_users:
+      - ubuntu
   roles:
     - docker
+
+- name: Deploy app
+  hosts: aws_ec2
+  become: true
+  roles:
+    - docker_compose_deploy

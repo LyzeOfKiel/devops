@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  app_python:
+    image: lok52/app_python:latest
+    ports:
+      - 80:8000
