@@ -3,11 +3,13 @@ extern crate rocket;
 
 use chrono::{TimeZone, Utc};
 use chrono_tz::Europe::Moscow;
+use std::net::SocketAddr;
 use rocket_dyn_templates::Template;
 use std::collections::HashMap;
 
 #[get("/")]
-fn index() -> Template {
+fn index(remote_addr: SocketAddr) -> Template {
+    println!("Requst from {}", remote_addr);
     let utc = Utc::now().naive_utc();
     let moscow_time = Moscow
         .from_utc_datetime(&utc)
