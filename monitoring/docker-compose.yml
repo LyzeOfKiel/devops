@@ -27,9 +27,19 @@ services:
     networks:
       - loki
 
+  prometheus:
+     image: prom/prometheus:v2.29.2
+     volumes:
+       - prometheus:/prometheus
+       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+     networks:
+       - loki
+     ports:
+       - 9090:9090
 
 networks:
   loki:
 
 volumes:
   grafana:
+  prometheus:

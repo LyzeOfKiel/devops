@@ -12,6 +12,12 @@ services:
         max-size: "200k"
         max-file: "10"
         tag: "{{.ImageName}}|{{.Name}}"
+    deploy:
+      resources:
+        limits:
+          memory: 200M
+        reservations:
+          memory: 100M
   app_rust:
     image: lok52/app_rust
     build: app_rust
@@ -23,3 +29,9 @@ services:
         max-size: "200k"
         max-file: "10"
         tag: "{{.ImageName}}|{{.Name}}"
+    deploy:
+      resources:
+        limits:
+          memory: 200M
+        reservations:
+          memory: 100M

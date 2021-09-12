@@ -6,6 +6,15 @@ Logs from *app_python* and from *app_rust*
 
 ![](./screenshots/logs.png)
 
+Prometheus targets
+
+![](./screenshots/prom_targets.png)
+
+Graphana dashboards
+
+![](./screenshots/prom_dash.png)
+![](./screenshots/loki_dash.png)
+
 ## Loggng best practices
 
 * Use tags to logically separate metrics and create dashboards
@@ -15,3 +24,5 @@ Logs from *app_python* and from *app_rust*
 * If using docker for logging stack make sure to save logs in volumes
 * Make sure permisions for log sourses are correct
 * Use log levels to correctly monitor errors and warnings
+* Enable log rotation to avoid overflowing the record store,
+    while keeping the log files small enough
