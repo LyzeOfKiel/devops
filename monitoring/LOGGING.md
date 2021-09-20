@@ -4,16 +4,16 @@
 
 Logs from *app_python* and from *app_rust*
 
-![](./screenshots/logs.png)
+![](./img/logs.png)
 
 Prometheus targets
 
-![](./screenshots/prom_targets.png)
+![](./img/prom_targets.png)
 
 Graphana dashboards
 
-![](./screenshots/prom_dash.png)
-![](./screenshots/loki_dash.png)
+![](./img/prom_dash.png)
+![](./img/loki_dash.png)
 
 ## Loggng best practices
 
