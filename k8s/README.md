@@ -24,3 +24,15 @@ kubectl apply -R -f ./k8s
 ```
 
 ![](./img/conf.png)
+
+## Helm
+
+```bash
+helm package app-python
+helm package app-rust
+
+helm install app-python ./app-python-0.1.0.tgz
+helm install app-rust ./app-rust-0.1.0.tgz
+```
+
+![](./img/helm.png)
