@@ -36,3 +36,17 @@ helm install app-rust ./app-rust-0.1.0.tgz
 ```
 
 ![](./img/helm.png)
+
+## Resource management
+
+If we try to specify memory limit less then 6MB we will get the `CreateContainerError`:
+
+![](./img/memory_error.png)
+
+If there is not enogh memory for python application we will see `OOMKilled`:
+
+![](./img/oom_killed.png)
+
+Otherwise everything works correctly:
+
+![](./img/memory_enough.png)
