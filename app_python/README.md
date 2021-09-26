@@ -1,5 +1,10 @@
 # HTTP time server
 
+## Endpoints
+
+`/` - get current Moscow time
+`/visits` - get a list of all `/` visitors ip and corresponding time
+
 ## Run
 
 ### Directly on target machine

@@ -10,6 +10,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
+RUN mkdir /app/visits
+
+RUN chown app /app/visits
+
 USER app
 
 EXPOSE 8000
