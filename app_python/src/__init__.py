@@ -6,7 +6,7 @@ import pytz
 from flask import Flask, render_template, request, make_response
 
 MOSCOW_TZ = pytz.timezone('Europe/Moscow')
-VISITS_FILE = 'visits/visits.txt'
+VISITS_FILE = './visits/visits.txt'
 
 def create_visits():
     dirname = os.path.dirname(VISITS_FILE)

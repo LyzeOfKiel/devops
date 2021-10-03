@@ -1,10 +1,12 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "app-python.fullname" . }}
   labels:
     {{- include "app-python.labels" . | nindent 4 }}
 spec:
+  serviceName: {{ include "app-python.fullname" . }}
+  podManagementPolicy: {{ .Values.podManagementPolicy }}
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
@@ -39,11 +41,11 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
+              path: /visits
               port: http
           readinessProbe:
             httpGet:
-              path: /
+              path: /visits
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
@@ -63,6 +65,8 @@ spec:
             - name: config-volume
               mountPath: /config.json
               subPath: config.json
+            - name: {{ include "app-python.fullname" . }}-visits
+              mountPath: /app/visits
       volumes:
         - name: config-volume
           configMap:
@@ -79,3 +83,11 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+  volumeClaimTemplates:
+  - metadata:
+      name: {{ include "app-python.fullname" . }}-visits
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi

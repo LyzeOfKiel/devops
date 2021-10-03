@@ -2,8 +2,10 @@ replicaCount: 3
 
 image:
   repository: lok52/app_python
-  pullPolicy: IfNotPresent
   tag: "latest"
+  pullPolicy: IfNotPresent
+
+podManagementPolicy: "Parallel"
 
 imagePullSecrets: []
 nameOverride: ""
