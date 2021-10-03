@@ -67,10 +67,25 @@ spec:
               subPath: config.json
             - name: {{ include "app-python.fullname" . }}-visits
               mountPath: /app/visits
+            - name: workdir
+              mountPath: "/work-dir"
+      initContainers:
+        - name: install
+          image: busybox
+          command:
+          - wget
+          - "-O"
+          - "/work-dir/index.html"
+          - https://google.com
+          volumeMounts:
+            - name: workdir
+              mountPath: "/work-dir"
       volumes:
         - name: config-volume
           configMap:
             name: app-python-config
+        - name: workdir
+          emptyDir: {}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
